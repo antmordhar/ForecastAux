@@ -13,8 +13,6 @@ humidity= humidity.rename(columns={'San Francisco': 'SFHumidity'})
 
 SF= pd.merge(temperature,humidity, on= 'datetime')
 SF= SF.dropna()
-print(SF)
-
 
 # Making a Connection with MongoClient
 client = MongoClient("mongodb://127.0.0.1:27017")
