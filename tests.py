@@ -21,9 +21,7 @@ class TestServiceARIMA(unittest.TestCase):
     
     def test_predecir(self):
         try:
-            modeloTemperatura= joblib.load('./Modelos/modeloTemperatura.pkl')
-            modeloHumidity= joblib.load('./Modelos/modeloHumidity.pkl')
-            predecir(24,modeloTemperatura,modeloHumidity)
+            predecir(24)
         except ExceptionType:
             self.fail("predecir() raised ExceptionType unexpectedly!")
 
