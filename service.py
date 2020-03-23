@@ -4,10 +4,6 @@ from sklearn.externals import joblib
 from predecir import predecir 
 
 app = Flask(__name__)
-# modeloTemperatura= joblib.load('./Modelos/modeloTemperatura.pkl')
-# modeloHumidity= joblib.load('./Modelos/modeloHumidity.pkl')
-modeloTemperatura= joblib.load('/tmp/workflow/Forecast/Modelos/modeloTemperatura.pkl')
-modeloHumidity= joblib.load('/tmp/workflow/Forecast/Modelos/modeloHumidity.pkl')
 
 @app.route('/')
 def index():
@@ -29,4 +25,6 @@ def sd():
     return salida,200
 
 if __name__ == '__main__':
+    modeloTemperatura= joblib.load('/tmp/workflow/Forecast/Modelos/modeloTemperatura.pkl')
+    modeloHumidity= joblib.load('/tmp/workflow/Forecast/Modelos/modeloHumidity.pkl')
     app.run(debug=True)
