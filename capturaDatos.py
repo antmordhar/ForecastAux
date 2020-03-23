@@ -15,6 +15,7 @@ def captura():
 
     SF= pd.merge(temperature,humidity, on= 'datetime')
     SF= SF.dropna()
+    SF= SF.tail(100)
 
     # Making a Connection with MongoClient
     client = MongoClient("mongodb://127.0.0.1:27017")
