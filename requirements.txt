@@ -6,5 +6,4 @@ sklearn
 pmdarima
 numpy
 statsmodels
-unittest
 gunicorn

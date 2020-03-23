@@ -7,7 +7,7 @@ from sklearn.externals import joblib
 
 def crearModelo():
 
-    client = MongoClient("mongodb://127.0.0.1:27017")
+    client = MongoClient("mongodb://0.0.0.0:27017")
     db = client["SanFrancisco"]
     col= db["Forecast"]
     df = pd.DataFrame(list(col.find()))
