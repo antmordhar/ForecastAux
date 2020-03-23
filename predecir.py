@@ -14,14 +14,13 @@ def predecir(n):
     prediccionTemperatura, confint = modeloTemperatura.predict(n_periods=n, return_conf_int=True)
     prediccionHumidity, confint = modeloHumidity.predict(n_periods=n, return_conf_int=True)
     
-    # todays_date = datetime.now().date()
     todays_date = datetime.now()
     index = pd.date_range(todays_date, periods=n, freq='H')
 
-    odf= pd.DataFrame(index=index, columns=['temperatura','humedad'])
+    odf= pd.DataFrame(index=index, columns=['Temperatura','Humedad'])
     temperatura=np.array(prediccionTemperatura)
     humedad=np.array(prediccionHumidity)
-    odf['temperatura']=temperatura
-    odf['humedad']=humedad
+    odf['Temperatura']=temperatura
+    odf['Humedad']=humedad
 
     return odf
