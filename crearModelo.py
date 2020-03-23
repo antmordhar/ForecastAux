@@ -43,4 +43,5 @@ def crearModelo():
 
     joblib.dump(modeloHumidity, '/tmp/workflow/Forecast/Modelos/modeloHumidity.pkl')
 
-crearModelo()
+if __name__ == '__main__':
+    crearModelo()
