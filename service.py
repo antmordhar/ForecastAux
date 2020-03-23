@@ -1,6 +1,5 @@
 #!flask/bin/python
 from flask import Flask
-from sklearn.externals import joblib
 from predecir import predecir 
 
 app = Flask(__name__)
@@ -11,20 +10,18 @@ def index():
 
 @app.route('/24')
 def vc():
-    salida = predecir(24,modeloTemperatura,modeloHumidity).to_html()
-    return salida,200
+    salida = predecir(24)
+    return salida.to_html(),200
 
 @app.route('/48')
 def co():
-    salida = predecir(48,modeloTemperatura,modeloHumidity).to_html()
-    return salida,200
+    salida = predecir(48)
+    return salida.to_html(),200
 
 @app.route('/72')
 def sd():
-    salida = predecir(72,modeloTemperatura,modeloHumidity).to_html()
-    return salida,200
+    salida = predecir(72)
+    return salida.to_html(),200
 
 if __name__ == '__main__':
-    modeloTemperatura= joblib.load('/tmp/workflow/Forecast/Modelos/modeloTemperatura.pkl')
-    modeloHumidity= joblib.load('/tmp/workflow/Forecast/Modelos/modeloHumidity.pkl')
     app.run(debug=True)

@@ -4,8 +4,8 @@ from pymongo import MongoClient
 
 def captura():
     
-    temperature = pd.read_csv("/tmp/workflow/Data/temperature.csv")
-    humidity = pd.read_csv("/tmp/workflow/Data/humidity.csv")
+    temperature = pd.read_csv("./Datos/temperature.csv")
+    humidity = pd.read_csv("./Datos/humidity.csv")
 
     temperature= temperature[['datetime','San Francisco']]
     temperature= temperature.rename(columns={'San Francisco': 'SFTemperature'})

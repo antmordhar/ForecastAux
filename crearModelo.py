@@ -26,7 +26,7 @@ def crearModelo():
                         suppress_warnings=True, 
                         stepwise=True)
     
-    joblib.dump(modeloTemperatura, '/tmp/workflow/Forecast/Modelos/modeloTemperatura.pkl')
+    joblib.dump(modeloTemperatura, './Modelos/modeloTemperatura.pkl')
 
     modeloHumidity = pm.auto_arima(df[['SFHumidity']], start_p=1, start_q=1,
                         test='adf',       # use adftest to find optimal 'd'
@@ -41,7 +41,7 @@ def crearModelo():
                         suppress_warnings=True, 
                         stepwise=True)
 
-    joblib.dump(modeloHumidity, '/tmp/workflow/Forecast/Modelos/modeloHumidity.pkl')
+    joblib.dump(modeloHumidity, './Modelos/modeloHumidity.pkl')
 
 if __name__ == '__main__':
     crearModelo()

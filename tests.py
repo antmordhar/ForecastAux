@@ -21,24 +21,24 @@ class TestServiceARIMA(unittest.TestCase):
     
     def test_predecir(self):
         try:
-            modeloTemperatura= joblib.load('/tmp/workflow/Forecast/Modelos/modeloTemperatura.pkl')
-            modeloHumidity= joblib.load('/tmp/workflow/Forecast/Modelos/modeloHumidity.pkl')
+            modeloTemperatura= joblib.load('./Modelos/modeloTemperatura.pkl')
+            modeloHumidity= joblib.load('./Modelos/modeloHumidity.pkl')
             predecir(24,modeloTemperatura,modeloHumidity)
         except ExceptionType:
             self.fail("predecir() raised ExceptionType unexpectedly!")
 
     def test_index(self):
         response,ok=service.index()
-        self.assertEqual(ok.status, 200)
+        self.assertEqual(ok, 200)
     def test_vc(self):
         response,ok=service.vc()
-        self.assertEqual(ok.status, 200)
+        self.assertEqual(ok, 200)
     def test_co(self):
         response,ok=service.co()
-        self.assertEqual(ok.status, 200)
+        self.assertEqual(ok, 200)
     def test_sd(self):
         response,ok=service.sd()
-        self.assertEqual(ok.status, 200)
+        self.assertEqual(ok, 200)
     
 
 if __name__ == '__main__':
